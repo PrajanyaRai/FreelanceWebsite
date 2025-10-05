@@ -19,7 +19,7 @@ export default function SkillSpaceLandingPage() {
 
     const trending = [
         "website development",
-        "architecture & interior design",
+        "Genrative AI",
         "video editing",
         "excel cleanup",
         "poster design",
