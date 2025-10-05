@@ -35,8 +35,8 @@ export default function SkillSpaceLandingPage() {
             <CategoriesMarquee items={trending} />
             <TopCategories />
             <PopularServices />
-            <BenefitsSection />
             <PromoMovingBanner />
+            <BenefitsSection />
             <TrustedLogos />
             <Footer />
 
