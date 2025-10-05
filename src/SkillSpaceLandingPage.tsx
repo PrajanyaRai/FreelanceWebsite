@@ -35,6 +35,7 @@ export default function SkillSpaceLandingPage() {
             <CategoriesMarquee items={trending} />
             <TopCategories />
             <PopularServices />
+            <BenefitsSection />
             <PromoMovingBanner />
             <TrustedLogos />
             <Footer />
@@ -300,6 +301,79 @@ function PromoMovingBanner() {
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+    );
+}
+
+/* ---------------- Benefits Section ---------------- */
+function BenefitsSection() {
+    const items = [
+        {
+            title: "Access a pool of top talent",
+            body: "across 700 categories",
+            icon: (
+                <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="text-neutral-600">
+                    <rect x="3" y="3" width="7" height="7" rx="1"></rect>
+                    <rect x="14" y="3" width="7" height="7" rx="1"></rect>
+                    <rect x="3" y="14" width="7" height="7" rx="1"></rect>
+                    <rect x="14" y="14" width="7" height="7" rx="1"></rect>
+                </svg>
+            ),
+        },
+        {
+            title: "Enjoy a simple, easy-to-use",
+            body: "matching experience",
+            icon: (
+                <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="text-neutral-600">
+                    <path d="M21 12a9 9 0 1 1-3.8-7.4"></path>
+                    <path d="M22 4l-9.5 9.5-3-3"></path>
+                </svg>
+            ),
+        },
+        {
+            title: "Get quality work done",
+            body: "quickly and within budget",
+            icon: (
+                <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="text-neutral-600">
+                    <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+                    <path d="M12 8l-2 4h4l-2 4"></path>
+                </svg>
+            ),
+        },
+        {
+            title: "Only pay when you're happy",
+            body: "",
+            icon: (
+                <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="text-neutral-600">
+                    <path d="M9 12l2 2 4-4"></path>
+                    <circle cx="12" cy="12" r="9"></circle>
+                    <path d="M16 17h2a2 2 0 0 0 2-2v-1"></path>
+                    <path d="M17 14v-4a2 2 0 0 1 2-2h1"></path>
+                </svg>
+            ),
+        },
+    ];
+
+    return (
+        <section className="py-12 bg-white">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-neutral-900">Make it all happen with freelancers</h2>
+                <div className="mt-10 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+                    {items.map((it, i) => (
+                        <div key={i} className="flex items-start gap-4">
+                            <div className="shrink-0 h-14 w-14 rounded-xl bg-neutral-50 ring-1 ring-neutral-200 grid place-items-center">
+                                {it.icon}
+                            </div>
+                            <div>
+                                <p className="text-[17px] font-semibold text-neutral-900 leading-snug">{it.title}</p>
+                                {it.body && (
+                                    <p className="text-[17px] text-neutral-600 leading-snug">{it.body}</p>
+                                )}
+                            </div>
+                        </div>
+                    ))}
                 </div>
             </div>
         </section>
