@@ -11,6 +11,7 @@ import writingTranslationIcon from "./assets/Images/writing-translation-thin.fd3
 import videoAnimationIcon from "./assets/Images/video-animation-thin.9d3f24d.svg";
 import aiServicesIcon from "./assets/Images/ai-services-thin.104f389.svg";
 import musicAudioIcon from "./assets/Images/music-audio-thin.43a9801.svg";
+import happyIcon from "./assets/Images/happy.42ed7bd.svg";
 // removed Business/Consulting icons per updated categories
 export default function SkillSpaceLandingPage() {
     const [query, setQuery] = useState("");
@@ -52,30 +53,11 @@ export default function SkillSpaceLandingPage() {
 
 /* ---------------- UI Blocks ---------------- */
 function Navbar({ onSignIn, onJoin }: { onSignIn: () => void; onJoin: () => void }) {
-    // Fallback inline SVG if /public/skillspace-logo.jpg is missing
-    const fallbackLogo = encodeURI(
-        `data:image/svg+xml;utf8,` +
-        `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'>` +
-        `<rect width='64' height='64' rx='14' fill='white'/>` +
-        `<circle cx='32' cy='32' r='18' fill='none' stroke='%2310b981' stroke-width='3'/>` +
-        `<ellipse cx='32' cy='32' rx='26' ry='12' fill='none' stroke='%2310b981' stroke-width='3'/>` +
-        `<text x='32' y='37' font-size='24' font-family='Inter, Arial' text-anchor='middle' fill='%23111'>S</text>` +
-        `</svg>`
-    );
-
     return (
         <header className="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-neutral-200">
             <div className="max-w-7xl mx-auto h-16 px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-6">
-                <a href="#top" className="flex items-center gap-3 group">
-                    <img
-                        src={`${import.meta.env.BASE_URL}skillspace-logo.jpg`}
-                        alt="SkillSpace"
-                        className="h-8 w-8 rounded-xl object-contain"
-                        onError={(e) => {
-                            (e.currentTarget as HTMLImageElement).src = fallbackLogo;
-                        }}
-                    />
-                    <span className="text-2xl font-extrabold tracking-tight">SkillSpace</span>
+                <a href="#top" className="flex items-center group">
+                    <span className="text-2xl font-extrabold tracking-tight leading-none">SkillSpace</span>
                 </a>
                 <div className="hidden lg:flex items-center flex-1 max-w-2xl mx-6">
                     <SearchBar compact />
@@ -86,9 +68,8 @@ function Navbar({ onSignIn, onJoin }: { onSignIn: () => void; onJoin: () => void
                     <a href="#pro" className="hover:text-neutral-900">For Business</a>
                     <a href="#faq" className="hover:text-neutral-900">FAQ</a>
                 </nav>
-                <div className="flex items-center gap-3 text-sm">
-                    <button className="hidden sm:inline-flex h-10 items-center rounded-xl px-4 border border-neutral-300 hover:bg-neutral-50 whitespace-nowrap">Become a Seller</button>
-                    <button onClick={onSignIn} className="hidden sm:inline-flex h-10 items-center rounded-xl px-4 hover:bg-neutral-100 whitespace-nowrap">Sign in</button>
+                <div className="flex items-center gap-4 text-sm">
+                    <button onClick={onSignIn} className="hidden sm:inline-flex h-10 items-center rounded-xl px-4 border border-neutral-300 bg-white hover:bg-neutral-50 whitespace-nowrap">Sign in</button>
                     <button onClick={onJoin} className="inline-flex h-10 items-center rounded-xl px-5 bg-emerald-600 text-white font-semibold hover:bg-emerald-500 shadow-sm whitespace-nowrap">Join</button>
                 </div>
             </div>
@@ -312,7 +293,7 @@ function BenefitsSection() {
     const items = [
         {
             title: "Access a pool of top talent",
-            body: "across 700 categories",
+            body: "",
             icon: (
                 <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="text-neutral-600">
                     <rect x="3" y="3" width="7" height="7" rx="1"></rect>
@@ -345,14 +326,7 @@ function BenefitsSection() {
         {
             title: "Only pay when you're happy",
             body: "",
-            icon: (
-                <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="text-neutral-600">
-                    <path d="M9 12l2 2 4-4"></path>
-                    <circle cx="12" cy="12" r="9"></circle>
-                    <path d="M16 17h2a2 2 0 0 0 2-2v-1"></path>
-                    <path d="M17 14v-4a2 2 0 0 1 2-2h1"></path>
-                </svg>
-            ),
+            icon: (<img src={happyIcon} alt="" className="h-10 w-10 object-contain" />),
         },
     ];
 
@@ -367,7 +341,7 @@ function BenefitsSection() {
                                 {it.icon}
                             </div>
                             <div>
-                                <p className="text-[17px] font-semibold text-neutral-900 leading-snug">{it.title}</p>
+                                <p className="text-[17px] font-semibold text-neutral-900 leading-snug sm:whitespace-nowrap">{it.title}</p>
                                 {it.body && (
                                     <p className="text-[17px] text-neutral-600 leading-snug">{it.body}</p>
                                 )}
